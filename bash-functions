@@ -1,0 +1,29 @@
+gits() {
+  local status count
+  count=5
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    count="$1"
+  fi
+  if ! type -P git &>/dev/null; then
+    echo "git is not installed"
+    return 1
+  fi
+  status=$(git status 2>/dev/null)
+  if [[ $? -ne 0 ]]; then
+    echo "not in a git repository"
+    return 2
+  fi
+  # Since the following is simply a nice-to-have, it doesn't matter if an
+  # unrelated running 'git fetch' prevents the fetch I want.
+  # I use 'gits' a lot, so eventually it will run (for me).
+  if ! pgrep -f 'git fetch' &>/dev/null; then
+    # Fetch latest refs and send to background if not already fetching
+    (git fetch --all --prune &) &>/dev/null
+  fi
+  if [[ -n "$status" ]]; then
+    # Call git status again, because we want it colored properly.
+    git status -s 2>/dev/null
+    echo
+  fi
+  git log --oneline -${count} --no-color | sed -re 's/\s+/    /'
+}
