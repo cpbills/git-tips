@@ -38,11 +38,8 @@ _show_git_status() {
     diverged='38;5;196'   # red
   fi
 
-  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  branch=$(git status | head -n1 | awk '{print $NF}')
   if [[ -n "$branch" ]]; then
-    if [[ "$branch" == 'HEAD' ]]; then
-      branch=$(git rev-parse --short HEAD 2>/dev/null)
-    fi
     git_status=$(git status 2> /dev/null)
     # If nothing changes the color, we can spot unhandled cases.
     color=$unknown
