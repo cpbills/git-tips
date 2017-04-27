@@ -74,7 +74,10 @@ _show_git_status() {
       color=$diverged
       branch="${branch}!"
     fi
-    printf "\[\033[%sm\]%s\[\033[0m\]" "$color" "$branch"
+    # Print the colored branch name + indicators
+    printf "\[\033[%sm\]%s" "$color" "$branch"
+    # Reset the color
+    printf "\[\033[0m\]"
   fi
   return 0
 }
