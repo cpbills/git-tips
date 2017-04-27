@@ -51,7 +51,7 @@ _show_git_status() {
       color=$stash
       branch="${branch}+"
     fi
-    if [[ $git_status =~ 'working directory clean' ]]; then
+    if [[ $git_status =~ working.*clean ]]; then
       color=$clean
     fi
     if [[ $git_status =~ 'Your branch is ahead' ]]; then
