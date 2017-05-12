@@ -5,7 +5,7 @@
 * bash-git_prompt     - An example colorful prompt for bash to show git status
 * git-aliases         - Some example aliases for `~/.gitconfig`
 * [docs/quick-start.md](docs/quick-start.md) - Quick start guide for git
-* [docs/helpers.md](docs/helpers.md)     - Helper script, bash prompt and aliases documentation
+* [docs/helpers.md](docs/helpers.md)     - Docs for helper tools
 
 Examples and more information about bash-functions, bash-git_prompt and git-aliases below the Getting Started guide.
 
