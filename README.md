@@ -10,3 +10,5 @@
 Examples and more information about bash-functions, bash-git_prompt and git-aliases below the Getting Started guide.
 
 More information about branching, forking, rebasing, merging and all that good stuff can be found in this excellent (and free!) online book: https://git-scm.com/book/en/v2
+
+Information on how to write better git commit messages, as well as explanations of why you might want to: https://chris.beams.io/posts/git-commit/
